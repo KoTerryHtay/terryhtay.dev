@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Jost } from "next/font/google";
+import { Analytics } from "@vercel/analytics/next";
 import "./globals.css";
 import { ThemeProvider } from "@/providers/ThemeProvider";
 import Header from "@/components/layouts/Header";
@@ -63,6 +64,7 @@ export default function RootLayout({
         >
           <Header />
           {children}
+          <Analytics />
         </ThemeProvider>
       </body>
     </html>
