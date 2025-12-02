@@ -28,11 +28,11 @@ export const metadata: Metadata = {
     description:
       "Portfolio website developed with NextJS, TypeScript, ShadcnUI & GSAP.",
     siteName: "Portfolio website",
-    // images: [
-    //   {
-    //     url: "responsive-showcase.png",
-    //   },
-    // ],
+    images: [
+      {
+        url: "https://i.ibb.co/zTv8jVQH/preview.png",
+      },
+    ],
   },
   authors: {
     name: "Terry Htay",
