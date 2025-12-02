@@ -1,0 +1,31 @@
+import {
+  BlogIcon,
+  CodeIcon,
+  ContactIcon,
+  DayIcon,
+  DownArrow,
+  FaceBook,
+  GithubIcon,
+  HeartIcon,
+  LinkedIn,
+  Mouse,
+  NightIcon,
+  PeopleIcon,
+  RightArrow,
+} from "./icons";
+
+export const Icons = {
+  day: DayIcon,
+  night: NightIcon,
+  people: PeopleIcon,
+  code: CodeIcon,
+  blog: BlogIcon,
+  contact: ContactIcon,
+  mouse: Mouse,
+  downArrow: DownArrow,
+  rightArrow: RightArrow,
+  github: GithubIcon,
+  linkedIn: LinkedIn,
+  facebook: FaceBook,
+  heart: HeartIcon,
+};

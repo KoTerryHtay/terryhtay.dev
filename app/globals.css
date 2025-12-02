@@ -1,5 +1,156 @@
 @import "tailwindcss";
 
+@custom-variant dark (&:where(.dark, .dark *));
+
+@layer base {
+  :root {
+    --bglight: #f9fafb;
+    --marrslight: #1c9a9a;
+    --marrsgreen: #007a7a;
+    --marrsdark: #004d4d;
+    --cardlight: #eff3f3;
+    /* --bgdark: #2D2D2D; */
+    --bgdark: #1d2a35;
+    --carrilight: #57dcb4;
+    --carrigreen: #05ce91;
+    --carridark: #00835b;
+    /* --carddark: #383838; */
+    --carddark: #22323f;
+    --textlight: #f9fafb;
+
+    --accent-color: 157, 87%, 41%;
+  }
+
+  .dark {
+    --accent-color: 157, 87%, 41%;
+    --base-background: 193, 20%, 9%;
+  }
+}
+
+/* accentColor: "hsl(var(--accent-color))", */
+@theme inline {
+  --color-bglight: var(--bglight);
+  --color-marrslight: var(--marrslight);
+  --color-bglight: var(--bglight);
+  --color-marrslight: var(--marrslight);
+  --color-marrsgreen: var(--marrsgreen);
+  --color-marrsdark: var(--marrsdark);
+  --color-cardlight: var(--cardlight);
+  --color-bgdark: var(--bgdark);
+  --color-carrilight: var(--carrilight);
+  --color-carrigreen: var(--carrigreen);
+  --color-carridark: var(--carridark);
+  --color-carddark: var(--carddark);
+  --color-textlight: var(--textlight);
+
+  --color-accentColor: hsl(var(--accent-color));
+  --color-baseBackground: hsl(var(--base-background));
+  --animate-infinite-scroll: infinite-scroll 25s linear infinite;
+}
+
+@layer base {
+  html {
+    @apply scroll-smooth overflow-y-scroll;
+  }
+
+  body {
+    @apply font-sans;
+  }
+
+  /* ===== Custom Scrollbar ===== */
+  /* width */
+  ::-webkit-scrollbar {
+    @apply w-3;
+  }
+
+  /* Track */
+  ::-webkit-scrollbar-track {
+    @apply bg-bglight dark:bg-bgdark;
+  }
+
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    @apply bg-[#d5d5d5] dark:bg-carddark;
+  }
+
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-[#b7b7b7] dark:bg-[#17222b];
+  }
+}
+
+@layer components {
+  .navlink {
+    position: relative;
+    cursor: pointer;
+    text-decoration: none;
+    font-weight: 500;
+    color: var(--navbar-text-color);
+    font-size: var(--navbar-text-size);
+    letter-spacing: var(--navbar-text-letter-spacing);
+    line-height: var(--navbar-text-line-height);
+    transition: color 0.25s ease-out;
+    padding: 0.5rem 0;
+  }
+
+  .navlink[data-active="true"]::after {
+    transform: scaleX(1);
+  }
+
+  .navlink:hover {
+    @apply dark:text-white;
+  }
+
+  .navlink:hover::after {
+    transform: scaleX(1);
+    transform-origin: bottom left;
+  }
+
+  .navlink::after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    transform: scaleX(0);
+    height: 2px;
+    left: 0;
+    bottom: 0;
+    background-color: #05cd77;
+    transform-origin: bottom right;
+    transition: transform 0.25s ease-out;
+  }
+
+  .section {
+    @apply py-11 md:pt-16 lg:pt-20 px-4 sm:px-8 md:px-20 max-w-6xl mx-auto lg:min-h-[768px];
+  }
+  .section-heading {
+    @apply text-2xl md:text-3xl xl:text-4xl inline-block my-6 font-medium;
+  }
+  .link-outline {
+    @apply outline-marrsgreen dark:outline-carrigreen;
+  }
+  /* .link {
+    @apply outline-marrsgreen dark:outline-carrigreen text-marrsdark hover:text-marrsgreen dark:text-carrilight dark:hover:text-carrigreen;
+  } */
+  .glassmorphism {
+    @apply bg-clip-padding backdrop-filter backdrop-blur-xl;
+  }
+
+  .lower-glassmorphism::after {
+    content: "";
+    @apply backdrop-blur-xl w-full h-full absolute top-0 left-0 -z-10;
+  }
+}
+
+@keyframes infinite-scroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-100%);
+  }
+}
+
+/* 
 :root {
   --background: #ffffff;
   --foreground: #171717;
@@ -23,4 +174,4 @@ body {
   background: var(--background);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
-}
+} */
